@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+    <title>연속 이미지 뷰어</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 상단 고정 UI: 파일 선택 버튼 -->
+    <div id="ui-container">
+        <!-- accept="image/*"로 jpg, png, webp 등 모든 이미지 허용 -->
+        <!-- multiple 속성으로 한 번에 수백~수천 장 선택 가능 -->
+        <label for="file-input" class="file-btn">폴더/파일 선택하여 보기</label>
+        <input type="file" id="file-input" multiple accept="image/*">
+    </div>
+
+    <!-- 이미지가 이어붙여질 영역 -->
+    <div id="viewer">
+        <div class="empty-message">위 버튼을 눌러 이미지를 선택해주세요.</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
