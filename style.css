@@ -7,7 +7,6 @@ body, html {
     height: 100%;
 }
 
-/* 상단 UI 고정 영역 (버튼 배치를 위해 relative 추가) */
 #ui-container {
     position: fixed;
     top: 0;
@@ -36,23 +35,38 @@ body, html {
 
 .file-btn:active { background-color: #0056b3; }
 
-/* 🌟 새로 추가된 이동 버튼 디자인 (우측 상단 고정) */
-#jump-btn {
+/* 🌟 사진과 똑같은 드롭다운 버튼 디자인 */
+#page-select {
     position: absolute;
     right: 15px;
     top: 50%;
-    transform: translateY(-50%); /* 세로 중앙 정렬 */
-    background-color: #444;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
+    transform: translateY(-50%);
+    
+    /* 기본 디자인(화살표 등) 제거 */
+    appearance: none; 
+    -webkit-appearance: none;
+    
+    background-color: white;
+    color: #333;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 8px 35px 8px 15px; /* 글자 주변 여백 (오른쪽은 화살표 자리) */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* 둥근 모서리 */
+    
+    /* 위아래 화살표 아이콘을 배경으로 삽입 (사진1과 동일한 형태) */
+    background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 15L12 20L17 15" stroke="%23333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 9L12 4L17 9" stroke="%23333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 20px;
+    
+    /* 비활성화 상태일 때 투명도 */
+    opacity: 1;
 }
 
-#jump-btn:active { background-color: #666; }
+#page-select:disabled {
+    opacity: 0.5;
+}
 
 /* 뷰어 영역 */
 #viewer {
@@ -70,7 +84,6 @@ body, html {
     font-size: 14px;
 }
 
-/* 이미지 컨테이너 */
 .image-container {
     width: 100%;
     margin: 0;
@@ -78,7 +91,6 @@ body, html {
     background-color: #1a1a1a;
 }
 
-/* 실제 이미지 */
 .image-container img {
     width: 100%;
     height: auto;
